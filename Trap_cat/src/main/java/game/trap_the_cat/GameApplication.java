@@ -14,7 +14,7 @@ public class GameApplication extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/game/trap_the_cat/game-view.fxml"));
         Scene scene = new Scene(loader.load(), 320, 240);
 
-        stage.setTitle("Hello!");
+        stage.setTitle("TRAP THE CAT");
         stage.setScene(scene);
         stage.show();
     }
