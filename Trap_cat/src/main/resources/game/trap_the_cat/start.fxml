@@ -18,12 +18,12 @@
       </ImageView>
       <VBox alignment="CENTER" layoutX="151.0" layoutY="169.0" prefHeight="210.0" prefWidth="297.0">
          <children>
-            <TextField alignment="CENTER" prefHeight="26.0" prefWidth="275.0" text="Name">
+            <TextField fx:id="usernameTextField" alignment="CENTER" prefHeight="26.0" prefWidth="275.0" promptText="Name">
                <font>
                   <Font name="Arial Black" size="23.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" style="-fx-background-color: red;" text="GO" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#go" style="-fx-background-color: red;" text="GO" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
