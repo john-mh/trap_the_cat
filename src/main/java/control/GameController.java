@@ -159,7 +159,7 @@ public class GameController implements Initializable {
 
         this.cat.setImage(new Image("file:src/assets/GatoAbajo.png"));
         moveCatImage(GameManager.getInstance().getGraph().getVertex(61).getPolygon());
-        System.out.println(this.catLeft.getLayoutX() + " " + this.catLeft.getLayoutY());
-        this.catLeft.toFront();
+        System.out.println(this.cat.getLayoutX() + " " + this.cat.getLayoutY());
+        this.cat.toFront();
     }
 }
