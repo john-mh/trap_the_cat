@@ -7,7 +7,8 @@ import model.logic.GameManager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -30,10 +31,13 @@ public class GameController implements Initializable {
     @FXML
     private AnchorPane floorPane;
 
+    private List<Polygon> polygons;
+
     @FXML
     private ImageView cat;
     private boolean canClick = true;
 
+    //TODO ckeck transition
     @FXML
     private void onMouseClicked(MouseEvent event) {
         Polygon polygon = (Polygon) event.getSource();
@@ -127,7 +131,7 @@ public class GameController implements Initializable {
     }
 
     private Vertex getRandomAdjacentVertex(List<Vertex> vertices) {
-        // Seleccionar un vértice al azar de la lista de vértices adyacentes
+
         int randomIndex = new Random().nextInt(vertices.size());
         return vertices.get(randomIndex);
     }
@@ -155,6 +159,7 @@ public class GameController implements Initializable {
 
         this.cat.setImage(new Image("file:src/assets/GatoAbajo.png"));
         moveCatImage(GameManager.getInstance().getGraph().getVertex(61).getPolygon());
-        this.cat.toFront();
+        System.out.println(this.catLeft.getLayoutX() + " " + this.catLeft.getLayoutY());
+        this.catLeft.toFront();
     }
 }
