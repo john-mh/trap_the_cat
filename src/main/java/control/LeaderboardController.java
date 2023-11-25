@@ -94,7 +94,7 @@ public class LeaderboardController {
     }
      */
 
-
+    /**
     private void setLeaderBoardTV() {
 
         ArrayList<User> a = (ArrayList<User>) manager.getUsersList();
@@ -120,5 +120,5 @@ public class LeaderboardController {
         scoreTc.setCellValueFactory(new PropertyValueFactory<User,Integer>("score"));
         posTc.setCellValueFactory(new PropertyValueFactory<User,Integer>("position"));
     }
-
+    */
 }

@@ -19,7 +19,6 @@ import java.io.IOException;
 public class StartController {
 
     GameManager manager;
-
     GameController games;
     private Stage st;
     private Stage godParent;
@@ -57,9 +56,6 @@ public class StartController {
             Parent p = loader.load();
             mainStage.setScene(new Scene(p));
             mainStage.show();
-            games.initialize();
-            st.close();
-            manager.startNewGame(res);
 
         }else {
 
@@ -68,6 +64,4 @@ public class StartController {
             a.showAndWait();
         }
     }
-
-
 }

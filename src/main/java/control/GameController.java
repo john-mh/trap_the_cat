@@ -18,8 +18,6 @@ public class GameController {
     public GameController() {
     }
 
-
-
     static final Paint BLOCKED = Color.rgb(84, 99, 17);
     static final Paint OPEN = Color.rgb(218, 247, 12);
     static final Paint BILAIASE = Color.RED;
@@ -54,7 +52,7 @@ public class GameController {
     @FXML
     void initialize() {
 
-        catLeft.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/game/trap_the_cat/cat_left.png"))));
+        catLeft.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/GatoIzquierda.png"))));
         floorPane.getChildren().stream()
                 .map(node -> (Polygon) node)
                 .forEach(poly -> {
