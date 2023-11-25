@@ -18,14 +18,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
-
-import javafx.stage.Stage;
+import javafx.util.Duration;
+import model.graph.Vertex;
+import model.logic.GameManager;
 
 import java.net.URL;
-
-import javafx.util.Duration;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class GameController implements Initializable {
 
@@ -50,10 +48,19 @@ public class GameController implements Initializable {
             canClick = false;
             polygon.setFill(BLOCKED);
             int id = Integer.parseInt(polygon.getId().substring(4));
-            //TODO tal vez mover esto a un metodo de GameManager
             GameManager.getInstance().getGraph().getVertex(id).setClosed(true);
             GameManager.getInstance().getGraph().deleteFromNeighbours(id);
-            GameManager.getInstance().moveCat();
+
+            // Obtener vértices adyacentes al gato
+            Vertex catPosition = GameManager.getInstance().getGraph().getCatPosition();
+            List<Vertex> adjacentVertices = GameManager.getInstance().getGraph().getAdjacentVertices(catPosition);
+
+            // Seleccionar un vértice adyacente al azar
+            Vertex randomVertex = getRandomAdjacentVertex(adjacentVertices);
+
+            // Actualizar la posición del gato
+            GameManager.getInstance().getGraph().setCatPosition(randomVertex);
+            moveCatImage(randomVertex.getPolygon());
 
             if(GameManager.getInstance().isGameFinished()) {
                 canClick = false;
@@ -93,11 +100,21 @@ public class GameController implements Initializable {
         }
     }
 
+    private Vertex getRandomAdjacentVertex(List<Vertex> vertices) {
+        // Seleccionar un vértice al azar de la lista de vértices adyacentes
+        int randomIndex = new Random().nextInt(vertices.size());
+        return vertices.get(randomIndex);
+    }
+
+
     private void moveCatImage(Polygon polygon) {
-        catLeft.setLayoutX(polygon.getLayoutX() - 36.5);
-        catLeft.setLayoutY(polygon.getLayoutY() - 26);
+        double x = polygon.getLayoutX() - 36.5;
+        double y = polygon.getLayoutY() - 26;
+        catLeft.setLayoutX(x);
+        catLeft.setLayoutY(y);
         catLeft.toFront();
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
