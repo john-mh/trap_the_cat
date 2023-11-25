@@ -16,11 +16,13 @@ public class GameManager implements Serializable {
     private static final long serialVersionUID = 1L;
     private static GameManager instance;
     private final Graph graph;
+    private boolean isGameFinished;
     private User root;
     private User current;
 
     public GameManager() {
         graph = GraphFactory.createGraph(GraphFactory.GraphType.LIST);
+        this.isGameFinished = false;
       
         try {
             importData();
@@ -43,6 +45,14 @@ public class GameManager implements Serializable {
         return graph;
     }
 
+    public boolean isGameFinished() {
+        return isGameFinished;
+    }
+
+    public void setGameFinished(boolean isGameFinished) {
+        this.isGameFinished = isGameFinished;
+    }
+
     public void importData() throws FileNotFoundException, IOException, ClassNotFoundException {
         File source = new File("data/status.mc");
 
@@ -60,8 +70,8 @@ public class GameManager implements Serializable {
         }
     }
 
-    public void exportData() throws FileNotFoundException, IOException {
-        File source = new File("data/status.mc");
+    public void exportData() throws IOException {
+        File source = new File("src/data/status.mc");
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(source));
         oos.writeObject(this);
         oos.close();
@@ -136,5 +146,7 @@ public class GameManager implements Serializable {
     public void setLeaderboardTV() {
     }
 
-    public void moveCat() {}
+    public void moveCat() {
+
+    }
 }
