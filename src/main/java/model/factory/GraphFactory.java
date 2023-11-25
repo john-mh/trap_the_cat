@@ -1,7 +1,5 @@
 package model.factory;
 
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import model.graph.Graph;
 import model.graph.Vertex;
 
@@ -14,7 +12,7 @@ public class GraphFactory {
         LIST, MATRIX
     }
 
-    private static final int SIZE = 50;
+    private static final int SIZE = 121;
 
     public static Graph createGraph(GraphType type) {
         return switch (type) {
@@ -39,9 +37,55 @@ public class GraphFactory {
             }
         }
 
-        matrix[0][1] = 1;
-        matrix[0][2] = 1;
+        for (int i = 0; i < SIZE; i++) {
+            boolean topEdge = i < 11;
+            boolean bottomEdge = i > 109;
+            boolean leftEdge = i % 11 == 0;
+            boolean rightEdge = i % 11 == 10;
 
+            if (topEdge) {
+                if(leftEdge) {
+                    matrix[i][i + 1] = 1;
+                    matrix[i][i + 11] = 1;
+                } else if (rightEdge) {
+                    matrix[i][i - 1] = 1;
+                    matrix[i][i + 11] = 1;
+                } else {
+                    matrix[i][i + 1] = 1;
+                    matrix[i][i - 1] = 1;
+                    matrix[i][i + 11] = 1;
+                    matrix[i][i + 10] = 1;
+                }
+            } else if (bottomEdge) {
+                if (leftEdge) {
+                    matrix[i][i + 1] = 1;
+                    matrix[i][i - 11] = 1;
+                } else if (rightEdge) {
+                    matrix[i][i - 1] = 1;
+                    matrix[i][i - 11] = 1;
+                } else {
+                    matrix[i][i + 1] = 1;
+                    matrix[i][i - 1] = 1;
+                    matrix[i][i - 11] = 1;
+                    matrix[i][i - 10] = 1;
+                }
+            } else if (leftEdge) {
+                matrix[i][i + 1] = 1;
+                matrix[i][i + 11] = 1;
+                matrix[i][i - 11] = 1;
+            } else if (rightEdge) {
+                matrix[i][i - 1] = 1;
+                matrix[i][i + 11] = 1;
+                matrix[i][i - 11] = 1;
+            } else {
+                matrix[i][i + 10] = 1;
+                matrix[i][i - 10] = 1;
+                matrix[i][i + 1] = 1;
+                matrix[i][i - 1] = 1;
+                matrix[i][i + 11] = 1;
+                matrix[i][i - 11] = 1;
+            }
+        }
 
         return matrix;
     }
