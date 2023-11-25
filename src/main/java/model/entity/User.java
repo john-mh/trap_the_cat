@@ -1,4 +1,4 @@
-package model;
+package model.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +16,6 @@ public class User implements Comparable<User>, Serializable{
 
 
     public User( String name, int score, int position) {
-
         this.name = name;
         this.score = score;
         this.position = position;
