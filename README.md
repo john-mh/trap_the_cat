@@ -25,8 +25,8 @@ The board features cells that are navigable by the cat. The player can select ce
 ## Implementation Details 🛠️
 
 - **Graph Theory:** The game is implemented using graph algorithms, including Graph Traversals (BFS, DFS), Minimum Weight Paths (Dijkstra, Floyd-Warshall), and Minimum Spanning Tree (Prim, Kruskal).
-
 - **Java and JavaFX:** The game is coded in Java, utilizing JavaFX for the 2D graphical interface.
+- ** IDE:** IntelliJ IDEA
 
 ## How to Run the Code ▶️
 
