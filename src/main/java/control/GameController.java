@@ -62,11 +62,11 @@ public class GameController implements Initializable {
             GameManager.getInstance().getGraph().getVertex(id).setClosed(true);
             GameManager.getInstance().getGraph().deleteFromNeighbours(id);
 
-            // Obtener vértices adyacentes al gato
+
             Vertex catPosition = GameManager.getInstance().getGraph().getCatPosition();
             List<Vertex> adjacentVertices = GameManager.getInstance().getGraph().getAdjacentVertices(catPosition);
 
-            // Seleccionar un vértice adyacente al azar
+
             Vertex randomVertex = getRandomAdjacentVertex(adjacentVertices);
 
             PauseTransition pause = new PauseTransition(Duration.seconds(0.3));
@@ -93,7 +93,7 @@ public class GameController implements Initializable {
 
             pause.play();
 
-            // Actualizar la posición del gato
+
             GameManager.getInstance().getGraph().setCatPosition(randomVertex);
             moveCatImage(randomVertex.getPolygon());
 

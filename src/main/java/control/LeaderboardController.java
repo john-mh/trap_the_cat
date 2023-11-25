@@ -94,8 +94,6 @@ public class LeaderboardController implements Initializable {
     }
 
 
-
-
     private void setLeaderBoardTV() {
 
         ArrayList<User> a = (ArrayList<User>) manager.getUsersList();
