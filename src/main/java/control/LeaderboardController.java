@@ -3,6 +3,7 @@ package control;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -14,7 +15,9 @@ import model.logic.GameManager;
 
 import java.io.IOException;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 
 import javafx.collections.FXCollections;
@@ -23,7 +26,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
-public class LeaderboardController {
+public class LeaderboardController implements Initializable {
 
     public LeaderboardController() {
     }
@@ -74,11 +77,11 @@ public class LeaderboardController {
 
     }
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //initializeLeaderBoard();
     }
+
 
     /**
     public void initializeLeaderBoard() {
