@@ -1,10 +1,9 @@
 package control;
 
+import game.trap_the_cat.GameApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
@@ -14,11 +13,11 @@ import model.entity.User;
 import model.logic.GameManager;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class StartController implements Initializable {
 
-public class StartController {
-
-    GameManager manager;
     GameController games;
     private Stage st;
     private Stage godParent;
@@ -27,41 +26,29 @@ public class StartController {
     public StartController() {
     }
 
-
-    public StartController(GameManager manager) {
-
-        this.manager = manager;
-    }
-
     @FXML
     private TextField usernameTextField;
 
 
     @FXML
-    private void initialize() {
-
-    }
-
-    @FXML
     public void go(ActionEvent event) throws IOException {
-
         String res = usernameTextField.getText();
 
         if (!res.isEmpty()) {
+            GameManager.getInstance().setCurrent(new User(res));
+            Stage mainStage = ((Stage) usernameTextField.getScene().getWindow());
+            GameApplication.hideWindow(mainStage);
+            GameApplication.showWindow("game", null, 987.5, 900);
 
-            manager.setCurrent(new User(res));
-            Stage mainStage  = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-            loader.setController(this);
-            Parent p = loader.load();
-            mainStage.setScene(new Scene(p));
-            mainStage.show();
-
-        }else {
-
+        } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Username textfield must be not empty!", ButtonType.OK);
             a.setTitle("What?!");
             a.showAndWait();
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
