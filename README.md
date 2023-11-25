@@ -25,15 +25,15 @@ The board features cells that are navigable by the cat. The player can select ce
 ## Implementation Details 🛠️
 
 - **Graph Theory:** The game is implemented using graph algorithms, including Graph Traversals (BFS, DFS), Minimum Weight Paths (Dijkstra, Floyd-Warshall), and Minimum Spanning Tree (Prim, Kruskal).
-
 - **Java and JavaFX:** The game is coded in Java, utilizing JavaFX for the 2D graphical interface.
+- **IDE:** IntelliJ IDEA
 
 ## How to Run the Code ▶️
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/catch-the-cat.git
+   git clone https://github.com/john-mh/trap_the_cat.git
 
 - Compile and run the Java code using your preferred IDE or the command line.
 - Enjoy playing Trap the Cat!
