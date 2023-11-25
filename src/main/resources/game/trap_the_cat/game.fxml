@@ -127,9 +127,9 @@
       <Polygon fx:id="tile119" fill="#ff5e00" layoutX="711.0" layoutY="825.0" onMouseClicked="#onMouseClicked" points="-50.0, 30.0, -1.52587890625E-5, 57.79999542236328, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeType="INSIDE" />
       <Polygon fx:id="tile120" fill="#ff5e00" layoutX="790.0" layoutY="825.0" onMouseClicked="#onMouseClicked" points="-50.0, 30.0, -1.52587890625E-5, 57.79999542236328, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeType="INSIDE" />
       <Polygon fx:id="tile121" fill="#ff5e00" layoutX="869.0" layoutY="825.0" onMouseClicked="#onMouseClicked" points="-50.0, 30.0, -1.52587890625E-5, 57.79999542236328, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeType="INSIDE" />
-
-      <ImageView fx:id="catLeft" fitHeight="72.0" fitWidth="74.0" layoutX="452.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../../assets/GatoIzquierda.png" />
+      <ImageView fx:id="catLeft" fitHeight="72.0" fitWidth="74.0" layoutX="442.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+         <Image url="@../../../../assets/GatoAbajo.png" />
       </ImageView>
    </children>
+
 </AnchorPane>
