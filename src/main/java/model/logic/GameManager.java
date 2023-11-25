@@ -128,4 +128,9 @@ public class GameManager implements Serializable {
     public void setCurrent(User current) {
         this.current = current;
     }
+
+    public void setLeaderboardTV() {
+    }
+
+    public void moveCat() {}
 }
