@@ -1,5 +1,8 @@
 package control;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
+import javafx.util.Duration;
 import model.logic.GameManager;
 
 import java.util.List;
@@ -34,27 +38,33 @@ public class GameController {
         Polygon polygon = (Polygon) event.getSource();
         if (polygon.getFill().equals(OPEN)) {
             polygon.setFill(BLOCKED);
-        } else if (polygon.getFill().equals(BLOCKED)) {
-            new Timer().schedule(
-                    new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            polygon.setFill(BILAIASE);
-                        }
-                    },
-                    1000);
+            int id = Integer.parseInt(polygon.getId().substring(4));
+            //TODO tal vez mover esto a un metodo de GameManager
+            GameManager.getInstance().getGraph().getVertex(id).setClosed(true);
+            GameManager.getInstance().getGraph().deleteFromNeighbours(id);
+            GameManager.getInstance().moveCat();
+        } else {
+            polygon.setFill(BILAIASE);
+
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.ZERO, new KeyValue(polygon.fillProperty(), BILAIASE)),
+                    new KeyFrame(Duration.seconds(3), new KeyValue(polygon.fillProperty(), BLOCKED))
+            );
+
+            timeline.play();
         }
     }
 
     @FXML
     private void initialize() {
         catLeft.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/game/trap_the_cat/cat_left.png"))));
-        floorPane.getChildren().stream()
-                .map(node -> (Polygon) node)
-                .forEach(poly -> {
-                    polygons.add(poly);
-                    poly.setFill(OPEN);
-                });
+
+        for(int i = 0; i < floorPane.getChildren().size(); i++) {
+            Polygon polygon = (Polygon) floorPane.getChildren().get(i);
+            polygon.setFill(OPEN);
+            int id = Integer.parseInt(polygon.getId().substring(4));
+            GameManager.getInstance().getGraph().setPolygon(id + 1, polygon);
+        }
     }
 
 }
