@@ -25,6 +25,10 @@ public class Vertex {
         return neighbors;
     }
 
+    public void addNeighbour(Vertex vertex) {
+        neighbors.add(vertex);
+    }
+
     public void setNeighbors(List<Vertex> neighbors) {
         this.neighbors = neighbors;
     }
@@ -45,7 +49,11 @@ public class Vertex {
         this.visited = visited;
     }
 
-    public void addNeighbour(Vertex vertex) {
-        neighbors.add(vertex);
+    public Polygon getPolygon() {
+        return polygon;
+    }
+
+    public void setPolygon(Polygon polygon) {
+        this.polygon = polygon;
     }
 }
