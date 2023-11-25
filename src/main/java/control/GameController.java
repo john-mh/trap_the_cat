@@ -19,6 +19,8 @@ import java.util.Objects;
 import java.util.Timer;
 
 public class GameController {
+    public GameController() {
+    }
 
     static final Paint BLOCKED = Color.rgb(84, 99, 17);
     static final Paint OPEN = Color.rgb(218, 247, 12);
@@ -35,6 +37,7 @@ public class GameController {
     //TODO transition from bilaiase to closed
     @FXML
     private void onMouseClicked(MouseEvent event) {
+
         Polygon polygon = (Polygon) event.getSource();
         if (polygon.getFill().equals(OPEN)) {
             polygon.setFill(BLOCKED);
@@ -65,6 +68,4 @@ public class GameController {
             int id = Integer.parseInt(polygon.getId().substring(4));
             GameManager.getInstance().getGraph().setPolygon(id + 1, polygon);
         }
-    }
-
 }

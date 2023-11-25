@@ -8,15 +8,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.LeaderboardController">
    <children>
       <Label layoutX="161.0" layoutY="14.0" text="Lederboard">
          <font>
             <Font name="Arial Black" size="48.0" />
          </font>
       </Label>
-      <TableView layoutX="13.0" layoutY="85.0" prefHeight="168.0" prefWidth="579.0">
+      <TableView fx:id="tv" layoutX="13.0" layoutY="85.0" prefHeight="168.0" prefWidth="579.0">
         <columns>
           <TableColumn fx:id="posTc" prefWidth="180.800048828125" text="Position" />
           <TableColumn fx:id="nameTc" prefWidth="238.39996337890625" text="Nickname" />

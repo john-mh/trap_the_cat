@@ -21,11 +21,15 @@ public class GameManager implements Serializable {
 
     public GameManager() {
         graph = GraphFactory.createGraph(GraphFactory.GraphType.LIST);
+      
         try {
             importData();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
+      
+        root = null;
+        current = null;
     }
 
     public static GameManager getInstance() {
