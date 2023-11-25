@@ -11,9 +11,8 @@ public class GameApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/game/trap_the_cat/game.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/game/trap_the_cat/leaderboard.fxml"));
         Scene scene = new Scene(loader.load(), 600, 600);
-
         stage.setTitle("TRAP THE CAT");
         stage.setScene(scene);
         stage.show();
