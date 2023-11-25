@@ -27,6 +27,10 @@ public class Graph {
         setCatPosition(getVertex(61));
     }
 
+    public List<Vertex> getAdjacentVertices(Vertex vertex) {
+        return vertex.neighbors();
+    }
+
     public List<Vertex> getVertices() {
         return vertices;
     }
