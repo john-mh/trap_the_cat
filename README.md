@@ -33,7 +33,7 @@ The board features cells that are navigable by the cat. The player can select ce
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/catch-the-cat.git
+   git clone https://github.com/john-mh/trap_the_cat.git
 
 - Compile and run the Java code using your preferred IDE or the command line.
 - Enjoy playing Trap the Cat!
