@@ -2,6 +2,7 @@ package model.graph;
 
 import javafx.scene.shape.Polygon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Vertex {
@@ -14,6 +15,7 @@ public class Vertex {
 
 
     public Vertex(int id) {
+        neighbors = new ArrayList<>();
         this.id = id;
     }
 
