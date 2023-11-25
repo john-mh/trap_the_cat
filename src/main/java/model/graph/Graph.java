@@ -2,6 +2,7 @@ package model.graph;
 
 import javafx.scene.shape.Polygon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Graph {
@@ -10,25 +11,30 @@ public class Graph {
     private Vertex catPosition;
 
     private Graph() {
-        setCatPosition(getVertex(61));
+        vertices = new ArrayList<>();
+        this.catPosition = null;
     }
 
     public Graph(List<Vertex> vertices) {
         this();
         fromVerticesList(vertices);
+        setCatPosition(getVertex(61));
     }
 
     public Graph(int[][] matrix) {
         this();
         fromAdjacencyMatrix(matrix);
+        setCatPosition(getVertex(61));
     }
 
     public List<Vertex> getVertices() {
         return vertices;
     }
+
     public Vertex getCatPosition() {
         return catPosition;
     }
+
     public void setCatPosition(Vertex catPosition) {
         this.catPosition = catPosition;
     }
