@@ -25,7 +25,7 @@ public class GameController {
 
     @FXML
     private void initialize() {
-       
+
     }
 
     @FXML

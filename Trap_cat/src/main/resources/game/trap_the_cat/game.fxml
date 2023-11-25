@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Polygon fill="DODGERBLUE" layoutX="384.0" layoutY="60.0" points="-50.0, 30.0, 0.0, 66.4000015258789, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="64.0" layoutY="59.0" points="-50.0, 30.0, -1.52587890625E-5, 57.79999542236328, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="171.0" layoutY="60.0" points="-50.0, 30.0, -1.52587890625E-5, 55.20000457763672, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="596.0" layoutY="61.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="489.0" layoutY="60.0" points="-50.0, 30.0, 0.0, 65.20001220703125, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="278.0" layoutY="58.0" points="-50.0, 30.0, 0.0, 59.99999237060547, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="813.0" layoutY="56.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="706.0" layoutY="55.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="706.0" layoutY="191.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="596.0" layoutY="191.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="489.0" layoutY="191.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="384.0" layoutY="191.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="278.0" layoutY="191.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="171.0" layoutY="191.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="171.0" layoutY="473.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="384.0" layoutY="473.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="278.0" layoutY="473.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="706.0" layoutY="326.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="596.0" layoutY="326.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="489.0" layoutY="326.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="384.0" layoutY="333.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="278.0" layoutY="326.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="171.0" layoutY="326.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="64.0" layoutY="326.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="64.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="813.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="706.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="596.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="489.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="384.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="278.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="171.0" layoutY="608.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="813.0" layoutY="333.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="706.0" layoutY="473.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="596.0" layoutY="473.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="DODGERBLUE" layoutX="489.0" layoutY="473.0" points="-50.0, 30.0, -1.52587890625E-5, 64.60000610351562, 50.0, 29.999984741210938, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="452.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../assets/GatoIzquierda.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
