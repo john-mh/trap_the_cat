@@ -9,8 +9,8 @@ import java.util.List;
 
 public class PathFindingAlgorithms {
 
-    public static List<Vertex> findPath(Algorithm algorithm, Graph graph, Vertex source, Vertex target) throws AlgorithmTypeMismatchException, NotSuchAlgorithmException {
-        List<Vertex> result;
+    public static Vertex findPath(Algorithm algorithm, Graph graph, Vertex source, Vertex target) throws AlgorithmTypeMismatchException, NotSuchAlgorithmException {
+        Vertex result;
 
         switch (algorithm) {
             case BFS -> result = bfs(graph, source, target);
@@ -25,19 +25,19 @@ public class PathFindingAlgorithms {
         return result;
     }
 
-    private static List<Vertex> bfs(Graph graph, Vertex source, Vertex target) {
+    private static Vertex bfs(Graph graph, Vertex source, Vertex target) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    private static List<Vertex> dfs(Graph graph, Vertex source, Vertex target) {
+    private static Vertex dfs(Graph graph, Vertex source, Vertex target) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    private static List<Vertex> dijkstra(Graph graph, Vertex source, Vertex target) {
+    private static Vertex dijkstra(Graph graph, Vertex source, Vertex target) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    private static List<Vertex> floydWarshall(Graph graph, Vertex source, Vertex target) {
+    private static Vertex floydWarshall(Graph graph, Vertex source, Vertex target) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
