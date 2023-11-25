@@ -1,8 +1,13 @@
 package model.logic;
 
+import algorithms.Algorithm;
+import algorithms.PathFindingAlgorithms;
+import exceptions.AlgorithmTypeMismatchException;
+import exceptions.NotSuchAlgorithmException;
 import model.entity.User;
 import model.factory.GraphFactory;
 import model.graph.Graph;
+import model.graph.Vertex;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -147,6 +152,56 @@ public class GameManager implements Serializable {
     }
 
     public void moveCat() {
+        Vertex current = graph.getCatPosition();
+        if(isCatInExit(current)) {
+            setGameFinished(true);
+            return;
+        }
 
+        Vertex next;
+
+        try {
+            next = PathFindingAlgorithms.findPath(Algorithm.BFS, graph, current, nearestExit(current));
+        } catch (AlgorithmTypeMismatchException | NotSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+        graph.setCatPosition(next);
+    }
+
+    private boolean isCatInExit(Vertex v) {
+        List<Vertex> exits = graph.getExits();
+
+        for(Vertex exit : exits) {
+            if(distance(v, exit) < 10) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public Vertex nearestExit(Vertex v) {
+
+        List<Vertex> exits = graph.getExits();
+
+        Vertex nearest = null;
+        double minDist = Double.MAX_VALUE;
+
+        for(Vertex exit : exits) {
+            double dist = distance(v, exit);
+            if(dist < minDist){
+                minDist = dist;
+                nearest = exit;
+            }
+        }
+
+        return nearest;
+    }
+
+    private double distance(Vertex a, Vertex b) {
+        double xDist = a.getPolygon().getLayoutX() - b.getPolygon().getLayoutX();
+        double yDist = a.getPolygon().getLayoutY() - b.getPolygon().getLayoutY();
+        return Math.hypot(xDist, yDist);
     }
 }
