@@ -70,17 +70,6 @@ public class LeaderboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    public void initializeLeaderBoard() {
-
-        if (manager.getRoot() != null) {
-
-            setLeaderBoardTV();
-        }
-        if (manager.getCurrent() == null) {
-
-            msgLb.setText("");
-        }
-    }
 
 
 

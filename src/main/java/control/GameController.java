@@ -78,7 +78,7 @@ public class GameController implements Initializable {
     }
 
     private Vertex getRandomAdjacentVertex(List<Vertex> vertices) {
-        // Seleccionar un vértice al azar de la lista de vértices adyacentes
+
         int randomIndex = new Random().nextInt(vertices.size());
         return vertices.get(randomIndex);
     }

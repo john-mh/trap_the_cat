@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.entity.User;
 import model.logic.GameManager;
@@ -29,6 +31,9 @@ public class StartController implements Initializable {
     @FXML
     private TextField usernameTextField;
 
+    @FXML
+    private ImageView logo;
+
 
     @FXML
     public void go(ActionEvent event) throws IOException {
@@ -49,6 +54,9 @@ public class StartController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        this.logo.setImage(new Image("file:src/assets/Logo.png"));
+        this.logo.toFront();
 
     }
 }
