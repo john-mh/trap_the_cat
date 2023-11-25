@@ -1,5 +1,7 @@
 package model.graph;
 
+import javafx.scene.shape.Polygon;
+
 import java.util.List;
 
 public class Graph {
@@ -19,6 +21,27 @@ public class Graph {
     public Graph(int[][] matrix) {
         this();
         fromAdjacencyMatrix(matrix);
+    }
+
+    public List<Vertex> getVertices() {
+        return vertices;
+    }
+    public Vertex getCatPosition() {
+        return catPosition;
+    }
+    public void setCatPosition(Vertex catPosition) {
+        this.catPosition = catPosition;
+    }
+
+    public Vertex getVertex(int id) {
+        return vertices.stream()
+                .filter(v -> v.id() == id)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void setPolygon(int id, Polygon polygon) {
+        getVertex(id).setPolygon(polygon);
     }
 
     private void fromAdjacencyMatrix(int[][] matrix) {
@@ -87,17 +110,9 @@ public class Graph {
         }
     }
 
-    public Vertex getCatPosition() {
-        return catPosition;
-    }
-    public void setCatPosition(Vertex catPosition) {
-        this.catPosition = catPosition;
-    }
-
-    public Vertex getVertex(int id) {
-        return vertices.stream()
-                .filter(v -> v.id() == id)
-                .findFirst()
-                .orElse(null);
+    public void deleteFromNeighbours(int id) {
+        for (Vertex vertex : vertices) {
+            vertex.neighbors().remove(getVertex(id));
+        }
     }
 }
