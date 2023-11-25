@@ -16,7 +16,7 @@ public class GraphFactory {
 
     private static final int SIZE = 50;
 
-    public static Graph createGraph(GraphType type {
+    public static Graph createGraph(GraphType type) {
         return switch (type) {
             case LIST -> new Graph(listGraphTemplate());
             case MATRIX -> new Graph(matrixGraphTemplate());
