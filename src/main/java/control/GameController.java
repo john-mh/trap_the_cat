@@ -1,12 +1,9 @@
 package control;
 
 import game.trap_the_cat.GameApplication;
+import javafx.animation.*;
+import javafx.stage.Stage;
 import model.logic.GameManager;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.PauseTransition;
-import javafx.animation.Timeline;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +17,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import model.graph.Vertex;
-import model.logic.GameManager;
 
 import java.net.URL;
 import java.util.*;
@@ -35,7 +31,7 @@ public class GameController implements Initializable {
     private AnchorPane floorPane;
 
     @FXML
-    private ImageView catLeft;
+    private ImageView cat;
     private boolean canClick = true;
 
     @FXML
@@ -46,7 +42,13 @@ public class GameController implements Initializable {
 
         if (polygon.getFill().equals(OPEN)) {
             canClick = false;
-            polygon.setFill(BLOCKED);
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.ZERO, new KeyValue(polygon.fillProperty(), OPEN)),
+                    new KeyFrame(Duration.seconds(3), new KeyValue(polygon.fillProperty(), BLOCKED))
+            );
+
+            timeline.play();
+
             int id = Integer.parseInt(polygon.getId().substring(4));
             GameManager.getInstance().getGraph().getVertex(id).setClosed(true);
             GameManager.getInstance().getGraph().deleteFromNeighbours(id);
@@ -58,15 +60,39 @@ public class GameController implements Initializable {
             // Seleccionar un vértice adyacente al azar
             Vertex randomVertex = getRandomAdjacentVertex(adjacentVertices);
 
+            PauseTransition pause = new PauseTransition(Duration.seconds(0.3));
+
+            pause.setOnFinished(event1 -> cat.setImage(new Image("file:src/assets/GatoAbajo.png")));
+
+                if(randomVertex.getPolygon().getLayoutY() < catPosition.getPolygon().getLayoutY()) {
+                    if(randomVertex.getPolygon().getLayoutX() < catPosition.getPolygon().getLayoutX())
+                        cat.setImage(new Image("file:src/assets/GatoDUIzquierda.png"));
+                    else if(randomVertex.getPolygon().getLayoutX() > catPosition.getPolygon().getLayoutX())
+                        cat.setImage(new Image("file:src/assets/GatoDUDerecha.png"));
+                    else cat.setImage(new Image("file:src/assets/GatoArriba.png"));
+                } else if(randomVertex.getPolygon().getLayoutY() > catPosition.getPolygon().getLayoutY()) {
+                    if(randomVertex.getPolygon().getLayoutX() < catPosition.getPolygon().getLayoutX())
+                        cat.setImage(new Image("file:src/assets/GatoDDIzquierda.png"));
+                    else if(randomVertex.getPolygon().getLayoutX() > catPosition.getPolygon().getLayoutX())
+                        cat.setImage(new Image("file:src/assets/GatoDDDerecha.png"));
+                    else cat.setImage(new Image("file:src/assets/GatoAbajo.png"));
+                } else if(randomVertex.getPolygon().getLayoutX() < catPosition.getPolygon().getLayoutX()) {
+                    cat.setImage(new Image("file:src/assets/GatoIzquierda.png"));
+                } else if(randomVertex.getPolygon().getLayoutX() > catPosition.getPolygon().getLayoutX()) {
+                    cat.setImage(new Image("file:src/assets/GatoDerecha.png"));
+                }
+
+            pause.play();
+
             // Actualizar la posición del gato
             GameManager.getInstance().getGraph().setCatPosition(randomVertex);
             moveCatImage(randomVertex.getPolygon());
 
             if(GameManager.getInstance().isGameFinished()) {
                 canClick = false;
-                catLeft.setVisible(false);
+                cat.setVisible(false);
 
-                Timeline timeline = new Timeline(
+                Timeline timeline2 = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(floorPane.opacityProperty(), 1)),
                         new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.6)),
                         new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.4)),
@@ -75,7 +101,7 @@ public class GameController implements Initializable {
                         new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.05))
                 );
 
-                timeline.play();
+                timeline2.play();
 
                 PauseTransition wait = new PauseTransition(Duration.seconds(2));
                 wait.setOnFinished(e -> {
@@ -110,9 +136,9 @@ public class GameController implements Initializable {
     private void moveCatImage(Polygon polygon) {
         double x = polygon.getLayoutX() - 36.5;
         double y = polygon.getLayoutY() - 26;
-        catLeft.setLayoutX(x);
-        catLeft.setLayoutY(y);
-        catLeft.toFront();
+        cat.setLayoutX(x);
+        cat.setLayoutY(y);
+        cat.toFront();
     }
 
 
@@ -127,9 +153,8 @@ public class GameController implements Initializable {
             GameManager.getInstance().getGraph().setPolygon(id, polygon);
         }
 
-        this.catLeft.setImage(new Image("file:src/assets/GatoAbajo.png"));
+        this.cat.setImage(new Image("file:src/assets/GatoAbajo.png"));
         moveCatImage(GameManager.getInstance().getGraph().getVertex(61).getPolygon());
-        this.catLeft.toFront();
-        GameManager.getInstance().setGameFinished(true); //test
+        this.cat.toFront();
     }
 }
