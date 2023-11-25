@@ -1,6 +1,8 @@
 package model.logic;
 
 import model.entity.User;
+import model.factory.GraphFactory;
+import model.graph.Graph;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,15 +14,29 @@ public class GameManager implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+    private static GameManager instance;
+    private final Graph graph;
     private User root;
     private User current;
 
     public GameManager() {
+        graph = GraphFactory.createGraph(GraphFactory.GraphType.LIST);
         try {
             importData();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static GameManager getInstance() {
+        if (instance == null) {
+            instance = new GameManager();
+        }
+        return instance;
+    }
+
+    public Graph getGraph() {
+        return graph;
     }
 
     public void importData() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -38,7 +54,6 @@ public class GameManager implements Serializable {
             root = null;
             current = null;
         }
-
     }
 
     public void exportData() throws FileNotFoundException, IOException {
@@ -47,7 +62,6 @@ public class GameManager implements Serializable {
         oos.writeObject(this);
         oos.close();
     }
-
 
     public void close() throws FileNotFoundException, IOException {
         exportData();
@@ -68,26 +82,20 @@ public class GameManager implements Serializable {
     }
 
     public List<User> getUsersList() {
-
         ArrayList<User> usersList = new ArrayList<>();
 
         if (root != null) {
-
             usersList = (ArrayList<User>)root.listUsers(usersList);
-
             usersList.sort(new Comparator<User>() {
-
                 @Override
                 public int compare(User o1, User o2) {
                     if (o1.getScore() > o2.getScore()) return -1;
                     else if (o1.getScore() < o2.getScore()) return 1;
-
                     return 0;
                 }
             });
 
             for (int i = 0; i < usersList.size(); i++) {
-
                 usersList.get(i).setPosition(i+1);
             }
         }
