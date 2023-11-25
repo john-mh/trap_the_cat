@@ -1,13 +1,16 @@
 package control;
 
+import game.trap_the_cat.GameApplication;
+import model.logic.GameManager;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Scene;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,14 +18,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
-import javafx.util.Duration;
-import model.logic.GameManager;
+
+import javafx.stage.Stage;
 
 import java.net.URL;
+
+import javafx.util.Duration;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 public class GameController implements Initializable {
 
@@ -33,13 +36,10 @@ public class GameController implements Initializable {
     @FXML
     private AnchorPane floorPane;
 
-    private List<Polygon> polygons;
-
     @FXML
     private ImageView catLeft;
     private boolean canClick = true;
 
-    //TODO ckeck transition
     @FXML
     private void onMouseClicked(MouseEvent event) {
         Polygon polygon = (Polygon) event.getSource();
@@ -54,6 +54,29 @@ public class GameController implements Initializable {
             GameManager.getInstance().getGraph().getVertex(id).setClosed(true);
             GameManager.getInstance().getGraph().deleteFromNeighbours(id);
             GameManager.getInstance().moveCat();
+
+            if(GameManager.getInstance().isGameFinished()) {
+                canClick = false;
+                catLeft.setVisible(false);
+
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.ZERO, new KeyValue(floorPane.opacityProperty(), 1)),
+                        new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.6)),
+                        new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.4)),
+                        new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.25)),
+                        new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.15)),
+                        new KeyFrame(Duration.seconds(1), new KeyValue(floorPane.opacityProperty(), 0.05))
+                );
+
+                timeline.play();
+
+                PauseTransition wait = new PauseTransition(Duration.seconds(2));
+                wait.setOnFinished(e -> {
+                    GameApplication.hideWindow((Stage) floorPane.getScene().getWindow());
+                    GameApplication.showWindow("leaderboard", null, 610, 610);
+                });
+                wait.play();
+            }
 
             PauseTransition wait = new PauseTransition(Duration.seconds(0.35));
             wait.setOnFinished(e -> canClick = true);
@@ -89,7 +112,7 @@ public class GameController implements Initializable {
 
         this.catLeft.setImage(new Image("file:src/assets/GatoAbajo.png"));
         moveCatImage(GameManager.getInstance().getGraph().getVertex(61).getPolygon());
-        System.out.println(this.catLeft.getLayoutX() + " " + this.catLeft.getLayoutY());
         this.catLeft.toFront();
+        GameManager.getInstance().setGameFinished(true); //test
     }
 }
