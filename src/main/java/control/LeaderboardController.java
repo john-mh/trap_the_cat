@@ -44,10 +44,19 @@ public class LeaderboardController implements Initializable {
 
     GameManager manager;
 
+    /**
+     *
+     * @param manager
+     */
     public LeaderboardController(GameManager manager) {
         this.manager = manager;
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void startNewGame(ActionEvent event) throws IOException {
         //GameManager.getInstance().exportData();
@@ -55,17 +64,31 @@ public class LeaderboardController implements Initializable {
         GameApplication.showWindow("start", null, 600, 500);
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     public void deleteCurrentScore(ActionEvent event) {
 
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void exitGame(ActionEvent event) throws IOException {
         //GameManager.getInstance().exportData();
         GameApplication.hideWindow((Stage) exitButton.getScene().getWindow());
     }
 
+    /**
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }

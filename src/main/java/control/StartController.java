@@ -25,6 +25,9 @@ public class StartController implements Initializable {
     private Stage godParent;
     private Stage mainStage;
 
+    /**
+     *
+     */
     public StartController() {
     }
 
@@ -35,6 +38,11 @@ public class StartController implements Initializable {
     private ImageView logo;
 
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void go(ActionEvent event) throws IOException {
         String res = usernameTextField.getText();
@@ -52,6 +60,11 @@ public class StartController implements Initializable {
         }
     }
 
+    /**
+     * 
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

@@ -37,6 +37,11 @@ public class GameController implements Initializable {
     private ImageView cat;
     private boolean canClick = true;
 
+
+    /**
+     *
+     * @param event
+     */
     //TODO ckeck transition
     @FXML
     private void onMouseClicked(MouseEvent event) {
@@ -130,6 +135,11 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param vertices
+     * @return
+     */
     private Vertex getRandomAdjacentVertex(List<Vertex> vertices) {
 
         int randomIndex = new Random().nextInt(vertices.size());
@@ -137,6 +147,10 @@ public class GameController implements Initializable {
     }
 
 
+    /**
+     *
+     * @param polygon
+     */
     private void moveCatImage(Polygon polygon) {
         double x = polygon.getLayoutX() - 36.5;
         double y = polygon.getLayoutY() - 26;
@@ -146,6 +160,11 @@ public class GameController implements Initializable {
     }
 
 
+    /**
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (int i = 0; i < floorPane.getChildren().size(); i++) {
