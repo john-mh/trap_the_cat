@@ -45,4 +45,7 @@ public class Vertex {
         this.visited = visited;
     }
 
+    public void addNeighbour(Vertex vertex) {
+        neighbors.add(vertex);
+    }
 }
