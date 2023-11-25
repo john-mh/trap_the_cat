@@ -55,7 +55,7 @@ public class GameController implements Initializable {
             GameManager.getInstance().getGraph().deleteFromNeighbours(id);
             GameManager.getInstance().moveCat();
 
-            PauseTransition wait = new PauseTransition(Duration.seconds(1));
+            PauseTransition wait = new PauseTransition(Duration.seconds(0.35));
             wait.setOnFinished(e -> canClick = true);
             wait.play();
         } else {
@@ -70,6 +70,12 @@ public class GameController implements Initializable {
         }
     }
 
+    private void moveCatImage(Polygon polygon) {
+        catLeft.setLayoutX(polygon.getLayoutX() - 36.5);
+        catLeft.setLayoutY(polygon.getLayoutY() - 26);
+        catLeft.toFront();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (int i = 0; i < floorPane.getChildren().size(); i++) {
@@ -82,8 +88,8 @@ public class GameController implements Initializable {
         }
 
         this.catLeft.setImage(new Image("file:src/assets/GatoAbajo.png"));
-        this.catLeft.setLayoutX(Objects.requireNonNull(GameManager.getInstance().getGraph().getVertex(61)).getPolygon().getLayoutX());
-        this.catLeft.setLayoutY(Objects.requireNonNull(GameManager.getInstance().getGraph().getVertex(61)).getPolygon().getLayoutY());
+        moveCatImage(GameManager.getInstance().getGraph().getVertex(61).getPolygon());
+        System.out.println(this.catLeft.getLayoutX() + " " + this.catLeft.getLayoutY());
         this.catLeft.toFront();
     }
 }
