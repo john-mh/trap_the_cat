@@ -6,7 +6,7 @@ Welcome to Trap the Cat, a simple and strategic game implemented in Java with Ja
 
 Trap the Cat is a game where a cat moves across a grid-based board. Players aim to encircle the cat by choosing adjacent cells, preventing its escape.
 
-The board features cells that are navigable by the cat. In turns, players select cells, rendering them impassable for the cat, gradually limiting the available space until it is captured.
+The board features cells that are navigable by the cat. The player can select cells, rendering them impassable for the cat, gradually limiting the available space until it is captured.
 
 ## How to Play 🕹️
 
@@ -14,9 +14,9 @@ The board features cells that are navigable by the cat. In turns, players select
 
 2. **Game Board:** The game board consists of a grid where the cat can move.
 
-3. **Player Turns:** Players take turns to select the cell. Cats try to escape
+3. **Player Turns:** Player can select the cell. The cat will try to escape
 
-4. **Game Outcome:** The game ends when the cat is trapped or escapes. Players can choose to play multiple rounds.
+4. **Game Outcome:** The game ends when the cat is trapped or escapes. Player can choose to play multiple rounds.
 
 ## Controls 🖱️
 
@@ -36,7 +36,7 @@ The board features cells that are navigable by the cat. In turns, players select
    git clone https://github.com/your-username/catch-the-cat.git
 
 - Compile and run the Java code using your preferred IDE or the command line.
-- Enjoy playing Catch the Cat!
+- Enjoy playing Trap the Cat!
 
 ## Contributing 🤝
 Feel free to contribute to the project by submitting issues, feature requests, or pull requests. Your feedback and enhancements are highly appreciated.
