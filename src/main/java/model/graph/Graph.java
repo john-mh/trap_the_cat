@@ -8,6 +8,7 @@ import java.util.List;
 public class Graph {
 
     private List<Vertex> vertices;
+    private List<Vertex> exits;
     private Vertex catPosition;
 
     private Graph() {
@@ -124,5 +125,17 @@ public class Graph {
         for (Vertex vertex : vertices) {
             vertex.neighbors().remove(getVertex(id));
         }
+    }
+
+    public List<Vertex> getExits() {
+        if (exits == null) {
+            exits = new ArrayList<>();
+            for (Vertex vertex : vertices) {
+                if (vertex.id() % 11 == 0 || vertex.id() % 11 == 10 || vertex.id() < 11 || vertex.id() > 109) {
+                    exits.add(vertex);
+                }
+            }
+        }
+        return exits;
     }
 }
