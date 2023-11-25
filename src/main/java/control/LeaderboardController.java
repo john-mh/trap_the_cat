@@ -1,6 +1,9 @@
 package control;
 
 import game.trap_the_cat.GameApplication;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.entity.User;
 
 import javafx.event.ActionEvent;
@@ -11,11 +14,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import model.logic.GameManager;
 
 import java.io.IOException;
 
 import java.net.URL;
 
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LeaderboardController implements Initializable {
@@ -37,6 +42,12 @@ public class LeaderboardController implements Initializable {
     @FXML
     private Button deleteScoreButton;
 
+    GameManager manager;
+
+    public LeaderboardController(GameManager manager) {
+        this.manager = manager;
+    }
+
     @FXML
     public void startNewGame(ActionEvent event) throws IOException {
         //GameManager.getInstance().exportData();
@@ -46,8 +57,7 @@ public class LeaderboardController implements Initializable {
 
     @FXML
     public void deleteCurrentScore(ActionEvent event) {
-        // Lógica para eliminar el puntaje actual
-        // Puedes dejar el cuerpo vacío si no necesitas ninguna lógica aquí
+
     }
 
     @FXML
@@ -60,21 +70,9 @@ public class LeaderboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    /**
-    public void initializeLeaderBoard() {
 
-        if (manager.getRoot() != null) {
 
-            setLeaderBoardTV();
-        }
-        if (manager.getCurrent() == null) {
 
-            msgLb.setText("");
-        }
-    }
-     */
-
-    /**
     private void setLeaderBoardTV() {
 
         ArrayList<User> a = (ArrayList<User>) manager.getUsersList();
@@ -100,5 +98,5 @@ public class LeaderboardController implements Initializable {
         scoreTc.setCellValueFactory(new PropertyValueFactory<User,Integer>("score"));
         posTc.setCellValueFactory(new PropertyValueFactory<User,Integer>("position"));
     }
-    */
+
 }
