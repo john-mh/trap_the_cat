@@ -1,10 +1,12 @@
 package model.entity;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-public class User implements Comparable<User>, Serializable{
+public class User implements Comparable<User>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private final static boolean CORRECT = true;
 
@@ -14,54 +16,38 @@ public class User implements Comparable<User>, Serializable{
 
     private User parent, left, right;
 
-
-    public User( String name, int score, int position) {
+    public User(String name, int score, int position) {
         this.name = name;
         this.score = score;
         this.position = position;
     }
 
-
     public User(String name, int score) {
-
         this.name = name;
         this.score = score;
     }
 
-
     public User(String name) {
-
         this.name = name;
     }
 
-
-    public void answer(boolean flag ) {
-
+    public void answer(boolean flag) {
         if (flag == CORRECT) {
-
             this.score += 10;
-        }else {
-
+        } else {
             this.score -= 10;
         }
     }
 
-
-
     public String getName() {
-
         return name;
     }
 
-
     public void setName(String name) {
-
         this.name = name;
     }
 
-
     public int getScore() {
-
         return score;
     }
 
@@ -69,115 +55,78 @@ public class User implements Comparable<User>, Serializable{
         this.score = score;
     }
 
-
     public int getPosition() {
-
         return position;
     }
 
-
     public void setPosition(int position) {
-
         this.position = position;
     }
 
-
     public User getParent() {
-
         return parent;
     }
 
-
     public void setParent(User parent) {
-
         this.parent = parent;
     }
 
-
     public User getLeft() {
-
         return left;
     }
 
-
     public void setLeft(User left) {
-
         this.left = left;
     }
 
-
     public User getRight() {
-
         return right;
     }
 
-
     public void setRight(User right) {
-
         this.right = right;
     }
 
-
     @Override
     public int compareTo(User o) {
-
         int v = this.name.compareTo(o.name);
-
         if (v == 0) {
-
-            if (score < o.score) return -1;
-            else if (score > o.score) return 1;
-            else return 0;
-        }else return v;
+            return Integer.compare(score, o.score);
+        } else return v;
     }
 
-
     public void add(User o) {
-
         if (compareTo(o) > 0) {
-
             if (left == null) {
-
                 left = o;
                 o.parent = this;
-            }else {
-
+            } else {
                 left.add(o);
             }
-        }else if (compareTo(o)< 0) {
-
+        } else if (compareTo(o)< 0) {
             if (right == null) {
-
                 right = o;
                 o.parent = this;
-            }else {
-
+            } else {
                 right.add(o);
             }
         }
     }
 
-
     public void remove(User o) {
-
         if (o == this) {
-
             remove();
-        }else if (compareTo(o) > 0) {
-
+        } else if (compareTo(o) > 0) {
             right.remove(o);
-        }else {
-
+        } else {
             left.remove(o);
         }
     }
 
-
     private void remove() {
+        User s = getSuccessor();
 
-        User s = getSucesor();
         if (s.parent != null) {
-
             if (s.parent.left == s) s.parent.left = null;
             else s.parent.right = null;
         }
@@ -187,49 +136,37 @@ public class User implements Comparable<User>, Serializable{
         s.right = right;
 
         if(parent != null) {
-
             if (parent.left == this) parent.left = s;
             else parent.right = s;
         }
     }
 
-
-    private User getSucesor() {
-
+    private User getSuccessor() {
         if (left == null) return right;
         else return left.getMax();
     }
 
-
     private User getMax() {
-
         if (right == null) return this;
         else return right.getMax();
     }
 
-
     public User search(User o) {
-
         int dif = compareTo(o);
         if ( dif == 0) return this;
         else if (dif > 0) return left.search(o);
         else return right.search(o);
     }
 
-
     public List<User> listUsers(List<User> l){
-
         if (left == null && right == null) {
-
             l.add(this);
-            return l;
-        }else {
-
+        } else {
             if (right != null ) l = right.listUsers(l);
             l.add(this);
             if (left != null) l = left.listUsers(l);
 
-            return l;
         }
+        return l;
     }
 }
