@@ -7,11 +7,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import model.entity.User;
 import model.logic.GameManager;
 
 import java.io.IOException;
+
+import java.util.ArrayList;
+
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import javafx.scene.control.cell.PropertyValueFactory;
+
 
 public class LeaderboardController {
 
@@ -21,7 +31,7 @@ public class LeaderboardController {
     GameManager manager;
 
     public LeaderboardController(GameManager manager) {
-        this.manager = manager;
+        this.manager = new GameManager();
     }
 
     @FXML
@@ -36,12 +46,16 @@ public class LeaderboardController {
     @FXML
     private Label msgLb;
 
+    @FXML
+    private TableView<User> tv;
+
+
 
     @FXML
     public void startNewGame(ActionEvent event) throws IOException {
 
         manager.exportData();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("leaderboard.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("start.fxml"));
         loader.setController(this);
         Parent parent = loader.load();
         Stage st = new Stage();
@@ -62,7 +76,49 @@ public class LeaderboardController {
 
     @FXML
     public void initialize() {
-        // Inicialización, si es necesaria
+
+        //initializeLeaderBoard();
+    }
+
+    /**
+    public void initializeLeaderBoard() {
+
+        if (manager.getRoot() != null) {
+
+            setLeaderBoardTV();
+        }
+        if (manager.getCurrent() == null) {
+
+            msgLb.setText("");
+        }
+    }
+     */
+
+
+    private void setLeaderBoardTV() {
+
+        ArrayList<User> a = (ArrayList<User>) manager.getUsersList();
+        ArrayList<User> b = new ArrayList<>();
+
+        if (a.size() < 5) {
+
+            b = a;
+        }else {
+
+            for (int i = 0; i < 5; i++) {
+
+                a.add(a.get(i));
+            }
+        }
+
+
+        ObservableList<User> observableList;
+        observableList = FXCollections.observableArrayList(b);
+
+        tv.setItems(observableList);
+        nameTc.setCellValueFactory(new PropertyValueFactory<User,String>("name"));
+        scoreTc.setCellValueFactory(new PropertyValueFactory<User,Integer>("score"));
+        posTc.setCellValueFactory(new PropertyValueFactory<User,Integer>("position"));
     }
 
 }

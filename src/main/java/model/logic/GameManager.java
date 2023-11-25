@@ -16,11 +16,8 @@ public class GameManager implements Serializable {
     private User current;
 
     public GameManager() {
-        try {
-            importData();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
-        }
+        root = null;
+        current = null;
     }
 
     public void importData() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -49,9 +46,7 @@ public class GameManager implements Serializable {
     }
 
 
-    public void close() throws FileNotFoundException, IOException {
-        exportData();
-    }
+
 
     public void startNewGame(String username) {
         current = new User(username);

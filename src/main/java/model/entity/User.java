@@ -15,7 +15,7 @@ public class User implements Comparable<User>, Serializable{
     private User parent, left, right;
 
 
-    public User( String name, int score, int position) {
+    public User(String name, int score, int position) {
         this.name = name;
         this.score = score;
         this.position = position;
